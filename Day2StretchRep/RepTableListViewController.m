@@ -31,7 +31,6 @@
     [self.tableView reloadData];
     [self.loadCircle stopAnimating];
             });
-
 }
 
 // This notifies user the data is being retrieved
@@ -47,6 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Search";
     [self registerForNotifications];
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
