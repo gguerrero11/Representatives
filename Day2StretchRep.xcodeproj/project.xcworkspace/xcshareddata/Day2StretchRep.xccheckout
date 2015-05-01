@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CC8253A8-40B7-4D06-BAA1-2603914D6996</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Day2StretchRep</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DE0BF14B04B1B14D24FF28CA7619945272F84C2A</key>
+		<string>https://github.com/gguerrero11/Representatives.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Day2StretchRep.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DE0BF14B04B1B14D24FF28CA7619945272F84C2A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/gguerrero11/Representatives.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DE0BF14B04B1B14D24FF28CA7619945272F84C2A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DE0BF14B04B1B14D24FF28CA7619945272F84C2A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Representatives</string>
+		</dict>
+	</array>
+</dict>
+</plist>

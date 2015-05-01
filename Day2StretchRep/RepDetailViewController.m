@@ -20,7 +20,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor redColor];
     Representative *repSelected = [RepController sharedInstance].arrayOfRep[self.indexOfRep];
-    self.title = repSelected.name;
+    //self.title = repSelected.name;
 }
 
 - (void)didReceiveMemoryWarning {

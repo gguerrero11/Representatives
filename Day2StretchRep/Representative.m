@@ -13,6 +13,7 @@
 - (id) initWithDictionary:(NSDictionary *)dict {
     self = [super init];
     if (self) {
+       
         _districtString =   dict[districtKey];
         _linkString     =   dict[linkKey];
         _name           =   dict[nameKey];
