@@ -26,7 +26,6 @@ static NSString * const cellIdentifier = @"cell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    NSLog(@"number of reps %lu", [RepController sharedInstance].arrayOfRep.count);
     return [RepController sharedInstance].arrayOfRep.count;
 }
 

@@ -20,12 +20,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:[ZipCodeInputViewController new]];
-    navController.title = @"Search";
-    SavedRepTableList *savedRepList = [SavedRepTableList new];
-    savedRepList.title = @"Saved Representatives";
+    UINavigationController *searchNavController = [[UINavigationController alloc]initWithRootViewController:[ZipCodeInputViewController new]];
+    searchNavController.title = @"Search";
+    
+    UINavigationController *savedNavController = [[UINavigationController alloc]initWithRootViewController:[SavedRepTableList new]];
+    savedNavController.title = @"Saved Representatives";
+
     UITabBarController *tabBarController = [UITabBarController new];
-    tabBarController.viewControllers = @[navController, savedRepList];
+    tabBarController.viewControllers = @[searchNavController, savedNavController];
     self.window.rootViewController = tabBarController;
     
     return YES;

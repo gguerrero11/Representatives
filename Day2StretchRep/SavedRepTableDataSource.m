@@ -26,8 +26,7 @@ static NSString * const cellIdentifier = @"cell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //    NSLog(@"number of reps %lu", [RepController sharedInstance].arrayOfRep.count);
-    return [RepController sharedInstance].arrayOfRep.count;
+    return [RepController sharedInstance].savedList.count;
 }
 
 
@@ -39,7 +38,7 @@ static NSString * const cellIdentifier = @"cell";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    Representative *rep = [RepController sharedInstance].arrayOfRep[indexPath.row];
+    Representative *rep = [RepController sharedInstance].savedList[indexPath.row];
     cell.textLabel.text = rep.name;
     NSString *subtitleText = [NSString stringWithFormat:@"District: %@    Party:%@    State:%@", rep.districtString, rep.partyString, rep.stateString];
     cell.detailTextLabel.text = subtitleText;
