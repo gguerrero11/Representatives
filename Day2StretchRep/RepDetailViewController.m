@@ -33,6 +33,7 @@
     [self createLabelWithTitle:partyKey withText:self.repSelected.partyString atYOrigin:200];
     [self createLabelWithTitle:stateKey withText:self.repSelected.stateString atYOrigin:240];
     [self createLinkWithTitle:phoneNumberKey withText:self.repSelected.phoneNumber atYOrigin:280 isWeblink:NO];
+    [self createLinkWithTitle:linkKey withText:self.repSelected.linkString atYOrigin:320 isWeblink:YES];
 
 }
 
@@ -45,26 +46,32 @@
 
 - (void)createLinkWithTitle:(NSString *)title withText:(NSString *)string atYOrigin:(double)yOrigin isWeblink:(BOOL)weblink{
     // use the same method but without text (it will be a button)
-    [self createLabelWithTitle:title withText:nil atYOrigin:yOrigin];
+    [self createLabelWithTitle:title withText:@"" atYOrigin:yOrigin];
     
     // create the link (either a phone number or weblink, depending on the type)
-    UIButton *link = [[UIButton alloc]initWithFrame:CGRectMake(120, yOrigin, self.view.frame.size.width, 40)];
-    link.titleLabel.text = string;
-    link.titleLabel.textColor = [UIColor blueColor];
+    UIButton *link = [[UIButton alloc]initWithFrame:CGRectMake(0, yOrigin, self.view.frame.size.width, 40)];
+    [link setTitle:string forState:UIControlStateNormal];
+    [link setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.view addSubview:link];
     
     // if its a weblink button, it will open safari, otherwise call the number
-    if (weblink == YES) [link addTarget:self action:@selector(weblinkPressed) forControlEvents:UIControlEventTouchDown];
-    else [link addTarget:self action:@selector(pressedPhoneNumber) forControlEvents:UIControlEventTouchDown];
+    if (weblink == YES) [link addTarget:self action:@selector(weblinkPressed:) forControlEvents:UIControlEventTouchDown];
+    else [link addTarget:self action:@selector(pressedPhoneNumber:) forControlEvents:UIControlEventTouchDown];
 }
 
-- (void)pressedPhoneNumber {
-    
+- (void)weblinkPressed:(id)sender {
+    // pass in the button so that we can get the text (weblink) from it
+    UIButton *button = sender;
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:button.titleLabel.text]];
 }
 
-- (void)weblinkPressed {
-    
+- (void)pressedPhoneNumber:(id)sender {
+    UIButton *button = sender;
+    NSString *phoneNumberWithoutDashes = [button.titleLabel.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", phoneNumberWithoutDashes];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
