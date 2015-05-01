@@ -32,9 +32,8 @@
     [self createLabelWithTitle:officeKey withText:self.repSelected.officeString atYOrigin:160];
     [self createLabelWithTitle:partyKey withText:self.repSelected.partyString atYOrigin:200];
     [self createLabelWithTitle:stateKey withText:self.repSelected.stateString atYOrigin:240];
-    [self createLabelWithTitle:phoneNumberKey withText:self.repSelected.phoneNumber atYOrigin:280];
-    
-    
+    [self createLinkWithTitle:phoneNumberKey withText:self.repSelected.phoneNumber atYOrigin:280 isWeblink:NO];
+
 }
 
 // this method will be used to create all the labels (more modular)
@@ -44,9 +43,19 @@
     [self.view addSubview:label];
 }
 
-- (void)createLinkWithText:(NSString *)string atYOrigin:(double)yOrigin {
-    UIButton *link = [[UIButton alloc]initWithFrame:CGRectMake(40, yOrigin, self.view.frame.size.width, 40)];
-    //link addTarget:<#(id)#> action:<#(SEL)#> forControlEvents:<#(UIControlEvents)#>
+- (void)createLinkWithTitle:(NSString *)title withText:(NSString *)string atYOrigin:(double)yOrigin isWeblink:(BOOL)weblink{
+    // use the same method but without text (it will be a button)
+    [self createLabelWithTitle:title withText:nil atYOrigin:yOrigin];
+    
+    // create the link (either a phone number or weblink, depending on the type)
+    UIButton *link = [[UIButton alloc]initWithFrame:CGRectMake(120, yOrigin, self.view.frame.size.width, 40)];
+    link.titleLabel.text = string;
+    link.titleLabel.textColor = [UIColor blueColor];
+    [self.view addSubview:link];
+    
+    // if its a weblink button, it will open safari, otherwise call the number
+    if (weblink == YES) [link addTarget:self action:@selector(weblinkPressed) forControlEvents:UIControlEventTouchDown];
+    else [link addTarget:self action:@selector(pressedPhoneNumber) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)pressedPhoneNumber {
