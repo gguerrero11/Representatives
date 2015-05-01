@@ -23,6 +23,7 @@
     // Intstantiate the text field
     self.textField = [[UITextField alloc]initWithFrame:CGRectMake( 30 , self.view.frame.size.height / 2, self.view.frame.size.width - 60, 30)];
     [self.textField setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.textField setKeyboardType:UIKeyboardTypeNumberPad];
     self.textField.placeholder = @"Zip Code";
     [self.view addSubview:self.textField];
     self.textField.delegate = self;
