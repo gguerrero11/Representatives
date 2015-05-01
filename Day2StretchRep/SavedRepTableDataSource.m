@@ -39,6 +39,7 @@ static NSString * const cellIdentifier = @"cell";
     }
     
     Representative *rep = [RepController sharedInstance].savedList[indexPath.row];
+    NSLog(@"array %@", [RepController sharedInstance].savedList);
     cell.textLabel.text = rep.name;
     NSString *subtitleText = [NSString stringWithFormat:@"District: %@    Party:%@    State:%@", rep.districtString, rep.partyString, rep.stateString];
     cell.detailTextLabel.text = subtitleText;

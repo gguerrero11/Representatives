@@ -44,19 +44,31 @@
     if ([self duplicatePresent] == NO) {
     // creates a temporary mutable array to add the Representative (it sets this mutable array to the sharedInstance saved list
     // It protects the savedList's NSArray integrity of objects (prevents random adding/removing of objects)
-    NSMutableArray *mArray = [[NSMutableArray alloc]initWithArray:[RepController sharedInstance].savedList];
-    [mArray addObject:self.repSelected];
-    [RepController sharedInstance].savedList = mArray;
+    //NSMutableArray *mArray = [[NSMutableArray alloc]initWithArray:[RepController sharedInstance].savedList];
+    //[mArray addObject:self.repSelected];
+    //[RepController sharedInstance].savedList = mArray;
     
     // alert that notifies user that the rep has been saved
     NSString *message = [NSString stringWithFormat:@"%@ has been added to your Saved List.", self.repSelected.name];
     UIAlertView *addedAlert = [[UIAlertView alloc]initWithTitle:@"Added to Saved List" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
     [addedAlert show];
         
+    // add this Representative to the "primary" managedObjectContext
+    Representative *rep = [NSEntityDescription insertNewObjectForEntityForName:@"Representative"
+                                                            inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+
+    // its not enough to just set rep = self.repSelected, you need to set each property manually for some reason
+    rep.districtString = self.repSelected.districtString;
+    rep.linkString = self.repSelected.linkString;
+    rep.name = self.repSelected.name;
+    rep.officeString = self.repSelected.officeString;
+    rep.partyString = self.repSelected.partyString;
+    rep.phoneNumber = self.repSelected.phoneNumber;
+    rep.stateString = self.repSelected.stateString;
+        
     // save it to Core Data
     [self save];    
     }
-
 }
 
 -(void)save {
@@ -72,7 +84,7 @@
             [self.repSelected.stateString isEqualToString:repInSavedList.stateString]) {
             
             NSString *message = [NSString stringWithFormat:@"%@ is already in your Saved List.", self.repSelected.name];
-            UIAlertView *addedAlert = [[UIAlertView alloc]initWithTitle:@"Name Already Saved." message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            UIAlertView *addedAlert = [[UIAlertView alloc]initWithTitle:@"Name Already Saved" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
             [addedAlert show];
             return YES;
         }
