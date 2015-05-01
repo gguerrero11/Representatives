@@ -44,8 +44,17 @@
     [self.view addSubview:label];
 }
 
-- (void)createLinkWithText:(NSString *)string {
- 
+- (void)createLinkWithText:(NSString *)string atYOrigin:(double)yOrigin {
+    UIButton *link = [[UIButton alloc]initWithFrame:CGRectMake(40, yOrigin, self.view.frame.size.width, 40)];
+    //link addTarget:<#(id)#> action:<#(SEL)#> forControlEvents:<#(UIControlEvents)#>
+}
+
+- (void)pressedPhoneNumber {
+    
+}
+
+- (void)weblinkPressed {
+    
 }
 
 - (void)didReceiveMemoryWarning {
