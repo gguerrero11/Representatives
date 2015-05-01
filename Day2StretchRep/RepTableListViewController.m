@@ -62,6 +62,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // create a detail view controller and pass the index of which cell was selected by the user.
     RepDetailViewController *repDetailVC = [RepDetailViewController new];
     repDetailVC.repSelected = [RepController sharedInstance].arrayOfRep[indexPath.row];

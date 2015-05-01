@@ -43,10 +43,9 @@
 - (void) addRepToSavedList {
     // creates a temporary mutable array to add the Representative (it sets this mutable array to the sharedInstance saved list
     // It protects the savedList's NSArray integrity of objects (prevents random adding/removing of objects)
-    NSMutableArray *mArray = [[NSMutableArray alloc]initWithArray:[RepController sharedInstance].arrayOfRep];
+    NSMutableArray *mArray = [[NSMutableArray alloc]initWithArray:[RepController sharedInstance].savedList];
     [mArray addObject:self.repSelected];
-    [RepController sharedInstance].arrayOfRep = mArray;
-    NSLog(@"%lu", [RepController sharedInstance].arrayOfRep.count);
+    [RepController sharedInstance].savedList = mArray;
     
     // alert that notifies user that the rep has been saved
     NSString *message = [NSString stringWithFormat:@"%@ has been added to your Saved List.", self.repSelected.name];

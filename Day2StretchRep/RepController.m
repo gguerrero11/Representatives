@@ -38,7 +38,7 @@
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         [RepController sharedInstance].representativesDict = json;
         [self createArrayOfRepresentativesWithDictionary:json];
-        NSLog(@"%@", json);
+        //NSLog(@"%@", json);
             
         } else {
             // notify the user there was an error in retrieving data

@@ -20,12 +20,16 @@
 
 @implementation SavedRepTableList
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Saved Representatives";
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
-    [self getTableViewData];
+       [self getTableViewData];
 }
 
 - (void) getTableViewData {
@@ -36,6 +40,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // create a detail view controller and pass the index of which cell was selected by the user.
     RepDetailViewController *repDetailVC = [RepDetailViewController new];
     repDetailVC.repSelected = [RepController sharedInstance].arrayOfRep[indexPath.row];
