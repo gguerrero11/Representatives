@@ -26,22 +26,26 @@
     [self setUpLabels];
 }
 
-- (void) setUpLabels {
+- (void)setUpLabels {
     [self createLabelWithTitle:nameKey withText:self.repSelected.name atYOrigin:80];
     [self createLabelWithTitle:districtKey withText:self.repSelected.districtString atYOrigin:120];
     [self createLabelWithTitle:officeKey withText:self.repSelected.officeString atYOrigin:160];
     [self createLabelWithTitle:partyKey withText:self.repSelected.partyString atYOrigin:200];
     [self createLabelWithTitle:stateKey withText:self.repSelected.stateString atYOrigin:240];
     [self createLabelWithTitle:phoneNumberKey withText:self.repSelected.phoneNumber atYOrigin:280];
-    [self createLabelWithTitle:linkKey withText:self.repSelected.linkString atYOrigin:320];
+    
+    
 }
 
 // this method will be used to create all the labels (more modular)
-- (void) createLabelWithTitle:(NSString *)title withText:(NSString *)string atYOrigin:(double)yOrigin {
+- (void)createLabelWithTitle:(NSString *)title withText:(NSString *)string atYOrigin:(double)yOrigin {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(40, yOrigin, self.view.frame.size.width, 40)];
     label.text = [NSString stringWithFormat:@"%@: %@", title, string];
     [self.view addSubview:label];
+}
 
+- (void)createLinkWithText:(NSString *)string {
+ 
 }
 
 - (void)didReceiveMemoryWarning {
