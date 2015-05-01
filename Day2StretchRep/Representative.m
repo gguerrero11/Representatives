@@ -10,19 +10,12 @@
 
 @implementation Representative
 
-- (id) initWithDictionary:(NSDictionary *)dict {
-    self = [super init];
-    if (self) {
-       
-        _districtString =   dict[districtKey];
-        _linkString     =   dict[linkKey];
-        _name           =   dict[nameKey];
-        _officeString   =   dict[officeKey];
-        _partyString    =   dict[partyKey];
-        _phoneNumber    =   dict[phoneNumberKey];
-        _stateString    =   dict[stateKey];
-    }
-    return self;
-}
+@dynamic districtString;
+@dynamic linkString;
+@dynamic name;
+@dynamic officeString;
+@dynamic partyString;
+@dynamic phoneNumber;
+@dynamic stateString;
 
 @end

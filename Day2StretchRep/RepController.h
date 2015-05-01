@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Representative.h"
+#import "CoreDataHelper.h"
 
 @interface RepController : NSObject
 
@@ -16,5 +18,11 @@
 
 + (RepController *) sharedInstance;
 - (void) getRepresentativesFromZip:(NSString *)string;
+
+- (Representative *)addRepesentativeWithDictionary:(NSDictionary *)dict;
+
+- (void)removeRep:(Representative *)rep;
+
+- (void)save;
 
 @end

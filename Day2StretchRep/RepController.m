@@ -8,7 +8,7 @@
 
 #import "RepController.h"
 #import <UIKit/UIKit.h>
-#import "Representative.h"
+
 
 @interface RepController () <UIAlertViewDelegate>
 
@@ -65,12 +65,41 @@
     // Create instance of Representative and add it to the mutable array
     NSArray *array = [dict valueForKey:@"results"];
     for (NSDictionary *dictionary in array) {
-    Representative *representative = [[Representative alloc]initWithDictionary:dictionary];
+    Representative *representative = [[RepController sharedInstance] addRepesentativeWithDictionary:dictionary];
     [arrayOfRepInstances addObject:representative];
     self.arrayOfRep = arrayOfRepInstances;
     }
-
 }
 
+// "calling" the property will fetch (from Core Data) and populate the array
+- (NSArray *)savedList {
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Representative"];
+    NSArray *repsArray = [[CoreDataHelper sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+    return repsArray;
+}
+
+- (Representative *)addRepesentativeWithDictionary:(NSDictionary *)dict {
+    Representative *rep = [Representative new];
+    
+//    Representative *rep = [NSEntityDescription insertNewObjectForEntityForName:@"Representative"
+//                                             inManagedObjectContext:[CoreDataHelper sharedInstance].managedObjectContext];
+    rep.districtString =   dict[districtKey];
+    rep.linkString     =   dict[linkKey];
+    rep.name           =   dict[nameKey];
+    rep.officeString   =   dict[officeKey];
+    rep.partyString    =   dict[partyKey];
+    rep.phoneNumber    =   dict[phoneNumberKey];
+    rep.stateString    =   dict[stateKey];
+
+    return rep;
+}
+
+-(void)removeRep:(Representative *)rep {
+    if (!rep) {
+        return;
+    }
+    [rep.managedObjectContext deleteObject:rep];
+}
 
 @end

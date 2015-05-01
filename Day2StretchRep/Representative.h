@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 // create static constants to prevent typos when getting values for keys
 static NSString * const districtKey = @"district";
@@ -17,9 +18,7 @@ static NSString * const partyKey = @"party";
 static NSString * const phoneNumberKey = @"phone";
 static NSString * const stateKey = @"state";
 
-@interface Representative : NSObject
-
-- (id) initWithDictionary:(NSDictionary *)dict ;
+@interface Representative : NSManagedObject
 
 @property (nonatomic,strong) NSString *districtString;
 @property (nonatomic,strong) NSString *linkString;

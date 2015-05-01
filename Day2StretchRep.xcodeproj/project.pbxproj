@@ -21,6 +21,8 @@
 		499B3C7B1AF309D30020E8FB /* RepDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C7A1AF309D30020E8FB /* RepDetailViewController.m */; };
 		499B3C7E1AF329940020E8FB /* SavedRepTableList.m in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C7D1AF329940020E8FB /* SavedRepTableList.m */; };
 		499B3C841AF32B270020E8FB /* SavedRepTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C831AF32B270020E8FB /* SavedRepTableDataSource.m */; };
+		499B3C871AF341800020E8FB /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C861AF341800020E8FB /* CoreDataHelper.m */; };
+		499B3C8A1AF342E70020E8FB /* Day2StretchRep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C881AF342E70020E8FB /* Day2StretchRep.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		49835E331AD42C730058917B /* Day2StretchRep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day2StretchRep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49835E331AD42C730058917B /* WhoIsRepresenting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoIsRepresenting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49835E371AD42C730058917B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49835E381AD42C730058917B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49835E3A1AD42C730058917B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,6 +63,9 @@
 		499B3C7D1AF329940020E8FB /* SavedRepTableList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedRepTableList.m; sourceTree = "<group>"; };
 		499B3C821AF32B270020E8FB /* SavedRepTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedRepTableDataSource.h; sourceTree = "<group>"; };
 		499B3C831AF32B270020E8FB /* SavedRepTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedRepTableDataSource.m; sourceTree = "<group>"; };
+		499B3C851AF341800020E8FB /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		499B3C861AF341800020E8FB /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		499B3C891AF342E70020E8FB /* Day2StretchRep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Day2StretchRep.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +98,7 @@
 		49835E341AD42C730058917B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49835E331AD42C730058917B /* Day2StretchRep.app */,
+				49835E331AD42C730058917B /* WhoIsRepresenting.app */,
 				49835E4C1AD42C730058917B /* Day2StretchRepTests.xctest */,
 			);
 			name = Products;
@@ -106,20 +111,11 @@
 				49835E3B1AD42C730058917B /* AppDelegate.m */,
 				49835E651AD437E60058917B /* ZipCodeInputViewController.h */,
 				49835E661AD437E60058917B /* ZipCodeInputViewController.m */,
-				49835E3D1AD42C730058917B /* RepTableListViewController.h */,
-				49835E3E1AD42C730058917B /* RepTableListViewController.m */,
-				49835E5F1AD431A80058917B /* ViewControllerDataSource.h */,
-				49835E601AD431A80058917B /* ViewControllerDataSource.m */,
-				499B3C7C1AF329940020E8FB /* SavedRepTableList.h */,
-				499B3C7D1AF329940020E8FB /* SavedRepTableList.m */,
-				499B3C821AF32B270020E8FB /* SavedRepTableDataSource.h */,
-				499B3C831AF32B270020E8FB /* SavedRepTableDataSource.m */,
 				499B3C791AF309D30020E8FB /* RepDetailViewController.h */,
 				499B3C7A1AF309D30020E8FB /* RepDetailViewController.m */,
-				49835E621AD433610058917B /* Representative.h */,
-				49835E631AD433610058917B /* Representative.m */,
-				49835E5C1AD430660058917B /* RepController.h */,
-				49835E5D1AD430660058917B /* RepController.m */,
+				499B3C8C1AF3E8740020E8FB /* SearchedRepsTab */,
+				499B3C8B1AF3E8690020E8FB /* SavedRepsTab */,
+				499B3C8D1AF3E8830020E8FB /* Model */,
 				49835E401AD42C730058917B /* Main.storyboard */,
 				49835E431AD42C730058917B /* Images.xcassets */,
 				49835E451AD42C730058917B /* LaunchScreen.xib */,
@@ -154,6 +150,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		499B3C8B1AF3E8690020E8FB /* SavedRepsTab */ = {
+			isa = PBXGroup;
+			children = (
+				499B3C851AF341800020E8FB /* CoreDataHelper.h */,
+				499B3C861AF341800020E8FB /* CoreDataHelper.m */,
+				499B3C7C1AF329940020E8FB /* SavedRepTableList.h */,
+				499B3C7D1AF329940020E8FB /* SavedRepTableList.m */,
+				499B3C821AF32B270020E8FB /* SavedRepTableDataSource.h */,
+				499B3C831AF32B270020E8FB /* SavedRepTableDataSource.m */,
+			);
+			name = SavedRepsTab;
+			sourceTree = "<group>";
+		};
+		499B3C8C1AF3E8740020E8FB /* SearchedRepsTab */ = {
+			isa = PBXGroup;
+			children = (
+				49835E3D1AD42C730058917B /* RepTableListViewController.h */,
+				49835E3E1AD42C730058917B /* RepTableListViewController.m */,
+				49835E5F1AD431A80058917B /* ViewControllerDataSource.h */,
+				49835E601AD431A80058917B /* ViewControllerDataSource.m */,
+			);
+			name = SearchedRepsTab;
+			sourceTree = "<group>";
+		};
+		499B3C8D1AF3E8830020E8FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				499B3C881AF342E70020E8FB /* Day2StretchRep.xcdatamodeld */,
+				49835E621AD433610058917B /* Representative.h */,
+				49835E631AD433610058917B /* Representative.m */,
+				49835E5C1AD430660058917B /* RepController.h */,
+				49835E5D1AD430660058917B /* RepController.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,7 +203,7 @@
 			);
 			name = Day2StretchRep;
 			productName = Day2StretchRep;
-			productReference = 49835E331AD42C730058917B /* Day2StretchRep.app */;
+			productReference = 49835E331AD42C730058917B /* WhoIsRepresenting.app */;
 			productType = "com.apple.product-type.application";
 		};
 		49835E4B1AD42C730058917B /* Day2StretchRepTests */ = {
@@ -261,6 +293,8 @@
 				499B3C7E1AF329940020E8FB /* SavedRepTableList.m in Sources */,
 				49835E3C1AD42C730058917B /* AppDelegate.m in Sources */,
 				499B3C7B1AF309D30020E8FB /* RepDetailViewController.m in Sources */,
+				499B3C8A1AF342E70020E8FB /* Day2StretchRep.xcdatamodeld in Sources */,
+				499B3C871AF341800020E8FB /* CoreDataHelper.m in Sources */,
 				499B3C841AF32B270020E8FB /* SavedRepTableDataSource.m in Sources */,
 				49835E641AD433610058917B /* Representative.m in Sources */,
 				49835E391AD42C730058917B /* main.m in Sources */,
@@ -387,7 +421,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Day2StretchRep/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WhoIsRepresenting;
 			};
 			name = Debug;
 		};
@@ -397,7 +431,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Day2StretchRep/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WhoIsRepresenting;
 			};
 			name = Release;
 		};
@@ -466,6 +500,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		499B3C881AF342E70020E8FB /* Day2StretchRep.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				499B3C891AF342E70020E8FB /* Day2StretchRep.xcdatamodel */,
+			);
+			currentVersion = 499B3C891AF342E70020E8FB /* Day2StretchRep.xcdatamodel */;
+			path = Day2StretchRep.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 49835E2B1AD42C730058917B /* Project object */;
 }

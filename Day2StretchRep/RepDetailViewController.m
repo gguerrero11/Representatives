@@ -52,8 +52,15 @@
     NSString *message = [NSString stringWithFormat:@"%@ has been added to your Saved List.", self.repSelected.name];
     UIAlertView *addedAlert = [[UIAlertView alloc]initWithTitle:@"Added to Saved List" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
     [addedAlert show];
+        
+    // save it to Core Data
+    [self save];    
     }
-    
+
+}
+
+-(void)save {
+    [[CoreDataHelper sharedInstance] save];
 }
 
 - (BOOL)duplicatePresent {
