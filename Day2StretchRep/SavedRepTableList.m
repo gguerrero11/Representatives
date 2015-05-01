@@ -30,6 +30,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     [self getTableViewData];
+    if ([RepController sharedInstance].savedList.count == 0) {}
 }
 
 - (void) getTableViewData {
@@ -37,6 +38,10 @@
     self.tableView.dataSource = self.dataSource;
     self.tableView.delegate = self;
     [self.dataSource registerTableView:self.tableView];
+}
+
+- (void)showEmptyTableLabel {
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
