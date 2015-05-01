@@ -38,6 +38,11 @@
 }
 
 - (void) searchPressed {
+    // clear the previous array of search results
+    [RepController sharedInstance].arrayOfRep = [NSArray new];
+    
+    // hide keypad
+    [self.textField resignFirstResponder];
     
     // Checks to see if there's text in the textField before it pushes to the next view controller.
     if ([self.textField.text isEqualToString:@""]) {
