@@ -39,7 +39,6 @@ static NSString * const cellIdentifier = @"cell";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    // create at representative using the data from the dictionary
     Representative *rep = [RepController sharedInstance].arrayOfRep[indexPath.row];
     cell.textLabel.text = rep.name;
     cell.detailTextLabel.text = rep.phoneNumber;
