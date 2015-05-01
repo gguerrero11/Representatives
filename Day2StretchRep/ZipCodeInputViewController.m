@@ -54,9 +54,12 @@
         [emptyStringAlert show];
 
     } else {
+        
     // Prepare the view controller that will be pushed onto the screen
     RepTableListViewController *viewController = [RepTableListViewController new];
     viewController.title = [NSString stringWithFormat:@"Representatives in %@", self.textField.text];
+    viewController.zipCode = self.textField.text;
+        
     // Query the representatives from the zip code entered by the user in the textfield
     [[RepController sharedInstance] getRepresentativesFromZip:self.textField.text];
     [self.navigationController pushViewController:viewController animated:YES];

@@ -12,9 +12,10 @@
 
 @interface RepDetailViewController ()
 
-
+@property (nonatomic,strong) UIActivityIndicatorView *loadCircle;
 
 @end
+
 
 @implementation RepDetailViewController
 
@@ -125,6 +126,7 @@
 }
 
 - (void)weblinkPressed:(id)sender {
+    
     // pass in the button so that we can get the text (weblink) from it
     UIButton *button = sender;
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:button.titleLabel.text]];
@@ -137,6 +139,15 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
 
+// This notifies user the data is being retrieved
+- (void)showActivityIcon {
+    self.loadCircle = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.loadCircle.frame = CGRectMake(self.view.frame.size.height / 2 - 50, self.view.frame.size.width / 2 - 50, 100, 100);
+    self.loadCircle.center = self.view.center;
+    self.loadCircle.backgroundColor = [UIColor colorWithWhite:.1 alpha:.35];
+    [self.loadCircle startAnimating];
+    [self.view addSubview:self.loadCircle];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

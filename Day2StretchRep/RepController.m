@@ -39,6 +39,7 @@
         [RepController sharedInstance].representativesDict = json;
         [self createArrayOfRepresentativesWithDictionary:json];
         //NSLog(@"%@", json);
+        if(json.count == 0) [[NSNotificationCenter defaultCenter] postNotificationName:@"noResults" object:nil];
             
         } else {
             // notify the user there was an error in retrieving data
@@ -52,7 +53,8 @@
         }
         // Notify the tableview to reload the table since the query is done
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateTable" object:nil];
-    }];
+        
+        }];
     // essential in order the Task to actually query data
     [dataTask resume];
 }

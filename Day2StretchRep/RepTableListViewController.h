@@ -10,8 +10,7 @@
 
 @interface RepTableListViewController : UIViewController
 
-
-
+@property (nonatomic,strong) NSString *zipCode;
 
 @end
 

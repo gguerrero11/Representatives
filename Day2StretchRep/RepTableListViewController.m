@@ -23,6 +23,7 @@
 
 - (void)registerForNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"updateTable" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNoResultsAlert) name:@"noResults" object:nil];
 }
 
 - (void)reloadTable {
@@ -54,11 +55,19 @@
     [self showActivityIcon];
 }
 
-- (void) getTableViewData {
+- (void)getTableViewData {
     self.dataSource = [ViewControllerDataSource new];
     self.tableView.dataSource = self.dataSource;
     self.tableView.delegate = self;
     [self.dataSource registerTableView:self.tableView];
+}
+
+- (void)showNoResultsAlert {
+    if ([RepController sharedInstance].arrayOfRep.count == 0) {
+        NSString *message = [NSString stringWithFormat:@"There were no listed representatives for zip code: %@", self.zipCode];
+        UIAlertView *addedAlert = [[UIAlertView alloc]initWithTitle:@"No Representatives" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [addedAlert show];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
