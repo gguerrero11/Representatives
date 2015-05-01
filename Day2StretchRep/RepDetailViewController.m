@@ -34,7 +34,6 @@
     [self createLabelWithTitle:stateKey withText:self.repSelected.stateString atYOrigin:240];
     [self createLinkWithTitle:phoneNumberKey withText:self.repSelected.phoneNumber atYOrigin:280 isWeblink:NO];
     [self createLinkWithTitle:linkKey withText:self.repSelected.linkString atYOrigin:320 isWeblink:YES];
-
 }
 
 // this method will be used to create all the labels (more modular)

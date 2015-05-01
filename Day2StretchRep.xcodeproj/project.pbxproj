@@ -19,6 +19,7 @@
 		49835E641AD433610058917B /* Representative.m in Sources */ = {isa = PBXBuildFile; fileRef = 49835E631AD433610058917B /* Representative.m */; };
 		49835E671AD437E60058917B /* ZipCodeInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49835E661AD437E60058917B /* ZipCodeInputViewController.m */; };
 		499B3C7B1AF309D30020E8FB /* RepDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C7A1AF309D30020E8FB /* RepDetailViewController.m */; };
+		499B3C7E1AF329940020E8FB /* SavedRepTableList.m in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C7D1AF329940020E8FB /* SavedRepTableList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		49835E661AD437E60058917B /* ZipCodeInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipCodeInputViewController.m; sourceTree = "<group>"; };
 		499B3C791AF309D30020E8FB /* RepDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepDetailViewController.h; sourceTree = "<group>"; };
 		499B3C7A1AF309D30020E8FB /* RepDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepDetailViewController.m; sourceTree = "<group>"; };
+		499B3C7C1AF329940020E8FB /* SavedRepTableList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedRepTableList.h; sourceTree = "<group>"; };
+		499B3C7D1AF329940020E8FB /* SavedRepTableList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedRepTableList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,8 @@
 				49835E661AD437E60058917B /* ZipCodeInputViewController.m */,
 				49835E3D1AD42C730058917B /* RepTableListViewController.h */,
 				49835E3E1AD42C730058917B /* RepTableListViewController.m */,
+				499B3C7C1AF329940020E8FB /* SavedRepTableList.h */,
+				499B3C7D1AF329940020E8FB /* SavedRepTableList.m */,
 				49835E5F1AD431A80058917B /* ViewControllerDataSource.h */,
 				49835E601AD431A80058917B /* ViewControllerDataSource.m */,
 				499B3C791AF309D30020E8FB /* RepDetailViewController.h */,
@@ -248,6 +253,7 @@
 				49835E5E1AD430660058917B /* RepController.m in Sources */,
 				49835E611AD431A80058917B /* ViewControllerDataSource.m in Sources */,
 				49835E671AD437E60058917B /* ZipCodeInputViewController.m in Sources */,
+				499B3C7E1AF329940020E8FB /* SavedRepTableList.m in Sources */,
 				49835E3C1AD42C730058917B /* AppDelegate.m in Sources */,
 				499B3C7B1AF309D30020E8FB /* RepDetailViewController.m in Sources */,
 				49835E641AD433610058917B /* Representative.m in Sources */,

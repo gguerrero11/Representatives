@@ -12,6 +12,7 @@
 
 @property (nonatomic,strong) NSDictionary *representativesDict;
 @property (nonatomic,strong) NSArray *arrayOfRep;
+@property (nonatomic,strong) NSArray *savedList;
 
 + (RepController *) sharedInstance;
 - (void) getRepresentativesFromZip:(NSString *)string;

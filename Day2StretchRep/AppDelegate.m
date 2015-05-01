@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RepTableListViewController.h"
 #import "ZipCodeInputViewController.h"
+#import "SavedRepTableList.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +19,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:[ZipCodeInputViewController new]];
-    self.window.rootViewController = navController;
+    navController.title = @"Search";
+    SavedRepTableList *savedRepList = [SavedRepTableList new];
+    savedRepList.title = @"Saved Representatives";
+    UITabBarController *tabBarController = [UITabBarController new];
+    tabBarController.viewControllers = @[navController, savedRepList];
+    self.window.rootViewController = tabBarController;
     
     return YES;
 }
