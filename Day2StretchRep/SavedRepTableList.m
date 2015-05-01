@@ -1,37 +1,54 @@
 //
-//  SavedRepTableList.m
+//  ViewController.m
 //  Day2StretchRep
 //
-//  Created by Gabriel Guerrero on 4/30/15.
+//  Created by Gabriel Guerrero on 4/7/15.
 //  Copyright (c) 2015 Gabe Guerrero. All rights reserved.
 //
 
 #import "SavedRepTableList.h"
+#import "RepController.h"
+#import "SavedRepTableDataSource.h"
+#import "RepDetailViewController.h"
 
-@interface SavedRepTableList ()
+@interface SavedRepTableList () <UITableViewDelegate>
+
+@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) SavedRepTableDataSource *dataSource;
+
 
 @end
 
 @implementation SavedRepTableList
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    [self.view addSubview:self.tableView];
+    [self getTableViewData];
+
+}
+
+- (void) getTableViewData {
+    self.dataSource = [SavedRepTableDataSource new];
+    self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self;
+    [self.dataSource registerTableView:self.tableView];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // create a detail view controller and pass the index of which cell was selected by the user.
+    RepDetailViewController *repDetailVC = [RepDetailViewController new];
+    repDetailVC.indexOfRep = indexPath.row;
+    [self.navigationController pushViewController:repDetailVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
