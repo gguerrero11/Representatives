@@ -13,5 +13,7 @@
 
 // set an representative that will be passed from the RepTableListVC
 @property (nonatomic,strong) Representative *repSelected;
+// this bool determines whether its from the save list or the search list. This will enable/disable the "Save Rep feature"
+@property (nonatomic) BOOL fromSearchList;
 
 @end

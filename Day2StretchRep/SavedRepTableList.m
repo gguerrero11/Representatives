@@ -16,12 +16,9 @@
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) SavedRepTableDataSource *dataSource;
 
-
 @end
 
 @implementation SavedRepTableList
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +39,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // create a detail view controller and pass the index of which cell was selected by the user.
     RepDetailViewController *repDetailVC = [RepDetailViewController new];
-    repDetailVC.indexOfRep = indexPath.row;
+    repDetailVC.repSelected = [RepController sharedInstance].arrayOfRep[indexPath.row];
     [self.navigationController pushViewController:repDetailVC animated:YES];
 }
 
