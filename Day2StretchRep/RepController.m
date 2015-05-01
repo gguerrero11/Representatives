@@ -65,7 +65,7 @@
     // Create instance of Representative and add it to the mutable array
     NSArray *array = [dict valueForKey:@"results"];
     for (NSDictionary *dictionary in array) {
-    Representative *representative = [[RepController sharedInstance] addRepesentativeWithDictionary:dictionary];
+    Representative *representative = [[RepController sharedInstance] createRepresentativeWithDictionary:dictionary];
     [arrayOfRepInstances addObject:representative];
     self.arrayOfRep = arrayOfRepInstances;
     }
@@ -74,16 +74,16 @@
 // "calling" the property will fetch (from Core Data) and populate the array
 - (NSArray *)savedList {
     
+    [[Stack sharedInstance].managedObjectContext rollback];
+    
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Representative"];
-    NSArray *repsArray = [[CoreDataHelper sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+    NSArray *repsArray = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
     return repsArray;
 }
 
-- (Representative *)addRepesentativeWithDictionary:(NSDictionary *)dict {
-    Representative *rep = [Representative new];
-    
-//    Representative *rep = [NSEntityDescription insertNewObjectForEntityForName:@"Representative"
-//                                             inManagedObjectContext:[CoreDataHelper sharedInstance].managedObjectContext];
+- (Representative *)createRepresentativeWithDictionary:(NSDictionary *)dict {
+    Representative *rep = [NSEntityDescription insertNewObjectForEntityForName:@"Representative"
+                                             inManagedObjectContext:[Stack sharedInstance].temporaryManagedObjectContext];
     rep.districtString =   dict[districtKey];
     rep.linkString     =   dict[linkKey];
     rep.name           =   dict[nameKey];
@@ -100,6 +100,7 @@
         return;
     }
     [rep.managedObjectContext deleteObject:rep];
+    
 }
 
 @end

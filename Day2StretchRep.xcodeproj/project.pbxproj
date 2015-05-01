@@ -21,8 +21,8 @@
 		499B3C7B1AF309D30020E8FB /* RepDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C7A1AF309D30020E8FB /* RepDetailViewController.m */; };
 		499B3C7E1AF329940020E8FB /* SavedRepTableList.m in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C7D1AF329940020E8FB /* SavedRepTableList.m */; };
 		499B3C841AF32B270020E8FB /* SavedRepTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C831AF32B270020E8FB /* SavedRepTableDataSource.m */; };
-		499B3C871AF341800020E8FB /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C861AF341800020E8FB /* CoreDataHelper.m */; };
 		499B3C8A1AF342E70020E8FB /* Day2StretchRep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C881AF342E70020E8FB /* Day2StretchRep.xcdatamodeld */; };
+		499B3C901AF3F42E0020E8FB /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 499B3C8F1AF3F42E0020E8FB /* Stack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,9 +63,9 @@
 		499B3C7D1AF329940020E8FB /* SavedRepTableList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedRepTableList.m; sourceTree = "<group>"; };
 		499B3C821AF32B270020E8FB /* SavedRepTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedRepTableDataSource.h; sourceTree = "<group>"; };
 		499B3C831AF32B270020E8FB /* SavedRepTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedRepTableDataSource.m; sourceTree = "<group>"; };
-		499B3C851AF341800020E8FB /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
-		499B3C861AF341800020E8FB /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		499B3C891AF342E70020E8FB /* Day2StretchRep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Day2StretchRep.xcdatamodel; sourceTree = "<group>"; };
+		499B3C8E1AF3F42E0020E8FB /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		499B3C8F1AF3F42E0020E8FB /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +109,8 @@
 			children = (
 				49835E3A1AD42C730058917B /* AppDelegate.h */,
 				49835E3B1AD42C730058917B /* AppDelegate.m */,
+				499B3C8E1AF3F42E0020E8FB /* Stack.h */,
+				499B3C8F1AF3F42E0020E8FB /* Stack.m */,
 				49835E651AD437E60058917B /* ZipCodeInputViewController.h */,
 				49835E661AD437E60058917B /* ZipCodeInputViewController.m */,
 				499B3C791AF309D30020E8FB /* RepDetailViewController.h */,
@@ -153,8 +155,6 @@
 		499B3C8B1AF3E8690020E8FB /* SavedRepsTab */ = {
 			isa = PBXGroup;
 			children = (
-				499B3C851AF341800020E8FB /* CoreDataHelper.h */,
-				499B3C861AF341800020E8FB /* CoreDataHelper.m */,
 				499B3C7C1AF329940020E8FB /* SavedRepTableList.h */,
 				499B3C7D1AF329940020E8FB /* SavedRepTableList.m */,
 				499B3C821AF32B270020E8FB /* SavedRepTableDataSource.h */,
@@ -287,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49835E3F1AD42C730058917B /* RepTableListViewController.m in Sources */,
+				499B3C901AF3F42E0020E8FB /* Stack.m in Sources */,
 				49835E5E1AD430660058917B /* RepController.m in Sources */,
 				49835E611AD431A80058917B /* ViewControllerDataSource.m in Sources */,
 				49835E671AD437E60058917B /* ZipCodeInputViewController.m in Sources */,
@@ -294,7 +295,6 @@
 				49835E3C1AD42C730058917B /* AppDelegate.m in Sources */,
 				499B3C7B1AF309D30020E8FB /* RepDetailViewController.m in Sources */,
 				499B3C8A1AF342E70020E8FB /* Day2StretchRep.xcdatamodeld in Sources */,
-				499B3C871AF341800020E8FB /* CoreDataHelper.m in Sources */,
 				499B3C841AF32B270020E8FB /* SavedRepTableDataSource.m in Sources */,
 				49835E641AD433610058917B /* Representative.m in Sources */,
 				49835E391AD42C730058917B /* main.m in Sources */,

@@ -60,7 +60,7 @@
 }
 
 -(void)save {
-    [[CoreDataHelper sharedInstance] save];
+    [[Stack sharedInstance].managedObjectContext save:nil];
 }
 
 - (BOOL)duplicatePresent {
