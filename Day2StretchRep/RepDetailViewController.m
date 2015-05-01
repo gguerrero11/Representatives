@@ -8,11 +8,9 @@
 
 #import "RepDetailViewController.h"
 #import "RepController.h"
-#import "Representative.h"
+
 
 @interface RepDetailViewController ()
-
-@property (nonatomic,strong) Representative *repSelected;
 
 @end
 

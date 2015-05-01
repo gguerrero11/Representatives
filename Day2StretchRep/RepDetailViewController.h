@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Representative.h"
 
 @interface RepDetailViewController : UIViewController
 
 // set an index that will be passed from the RepTableListVC
 @property (nonatomic,assign) NSInteger indexOfRep;
+@property (nonatomic,strong) Representative *repSelected;
 
 @end
