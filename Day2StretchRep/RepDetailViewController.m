@@ -12,6 +12,8 @@
 
 @interface RepDetailViewController ()
 
+
+
 @end
 
 @implementation RepDetailViewController
@@ -21,11 +23,29 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = self.repSelected.name;
     [self setUpLabels];
+    [self addNavBarButton];
 }
 
 // this method was added so if the user is selecting a rep from either the saved list or the search list, it displays correct information based on the instance rather than from the selected index.
 - (void) updateRepresentative:(Representative *)passedRep {
     self.repSelected = passedRep;
+}
+
+// if the user is coming from the list of searched reps, it an Add to saved list will appear.
+- (void)addNavBarButton {
+    if (self.fromSearchList == YES) {
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:
+                                      UIBarButtonSystemItemAdd target:self action:@selector(addRepToSavedList)];
+        self.navigationItem.rightBarButtonItem = addButton;
+    }
+}
+
+- (void) addRepToSavedList {
+    NSMutableArray *mArray = [[NSMutableArray alloc]initWithArray:[RepController sharedInstance].arrayOfRep];
+    [mArray addObject:self.repSelected];
+    NSString *message = [NSString stringWithFormat:@"%@ has been added to your Saved List.", self.repSelected.name];
+    UIAlertView *addedAlert = [[UIAlertView alloc]initWithTitle:@"Added to Saved List" message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [addedAlert show];
 }
 
 - (void)setUpLabels {

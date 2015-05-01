@@ -65,6 +65,7 @@
     // create a detail view controller and pass the index of which cell was selected by the user.
     RepDetailViewController *repDetailVC = [RepDetailViewController new];
     repDetailVC.repSelected = [RepController sharedInstance].arrayOfRep[indexPath.row];
+    repDetailVC.fromSearchList = YES;
     [self.navigationController pushViewController:repDetailVC animated:YES];
 }
 

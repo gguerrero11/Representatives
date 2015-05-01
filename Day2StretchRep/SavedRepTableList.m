@@ -26,7 +26,6 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     [self getTableViewData];
-
 }
 
 - (void) getTableViewData {
@@ -40,6 +39,7 @@
     // create a detail view controller and pass the index of which cell was selected by the user.
     RepDetailViewController *repDetailVC = [RepDetailViewController new];
     repDetailVC.repSelected = [RepController sharedInstance].arrayOfRep[indexPath.row];
+    repDetailVC.fromSearchList = NO;
     [self.navigationController pushViewController:repDetailVC animated:YES];
 }
 
