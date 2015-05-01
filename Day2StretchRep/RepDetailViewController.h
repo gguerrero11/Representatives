@@ -11,8 +11,7 @@
 
 @interface RepDetailViewController : UIViewController
 
-// set an index that will be passed from the RepTableListVC
-@property (nonatomic,assign) NSInteger indexOfRep;
+// set an representative that will be passed from the RepTableListVC
 @property (nonatomic,strong) Representative *repSelected;
 
 @end
