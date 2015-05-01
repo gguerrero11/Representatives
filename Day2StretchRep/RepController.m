@@ -8,6 +8,7 @@
 
 #import "RepController.h"
 #import <UIKit/UIKit.h>
+#import "Representative.h"
 
 @interface RepController () <UIAlertViewDelegate>
 
@@ -35,8 +36,17 @@
         }
         
         if (!error) {
+            
+        // Create mutable array to add instances of Representative
+        NSMutableArray *arrayOfRepInstances = [NSMutableArray new];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         [RepController sharedInstance].representativesDict = json;
+            
+        // Create instance of Representative and add it to the mutable array
+        Representative *representative = [[Representative alloc]initWithDictionary:json];
+        [arrayOfRepInstances addObject:representative];
+        self.arrayOfRep = arrayOfRepInstances;
+            
         NSLog(@"%@", json);
         } else {
             // notify the user there was an error in retrieving data
