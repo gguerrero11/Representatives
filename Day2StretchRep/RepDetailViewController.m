@@ -19,9 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.repSelected = [RepController sharedInstance].arrayOfRep[self.indexOfRep];
     self.title = self.repSelected.name;
     [self setUpLabels];
+}
+
+// this method was added so if the user is selecting a rep from either the saved list or the search list, it displays correct information based on the instance rather than from the selected index.
+- (void) updateRepresentative:(Representative *)passedRep {
+    self.repSelected = passedRep;
 }
 
 - (void)setUpLabels {
