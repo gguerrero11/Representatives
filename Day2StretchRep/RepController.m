@@ -74,14 +74,13 @@
 // "calling" the property will fetch (from Core Data) and populate the array
 - (NSArray *)savedList {
     
-    [[Stack sharedInstance].managedObjectContext rollback];
-    
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Representative"];
     NSArray *repsArray = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
     return repsArray;
 }
 
 - (Representative *)createRepresentativeWithDictionary:(NSDictionary *)dict {
+    // This rep wil be saved to a temporary context
     Representative *rep = [NSEntityDescription insertNewObjectForEntityForName:@"Representative"
                                              inManagedObjectContext:[Stack sharedInstance].temporaryManagedObjectContext];
     rep.districtString =   dict[districtKey];

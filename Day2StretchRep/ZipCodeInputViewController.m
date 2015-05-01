@@ -38,6 +38,9 @@
 }
 
 - (void) searchPressed {
+    // this clears the temporary managed object context. It will remove the previous objects from a previous search
+    [[Stack sharedInstance].temporaryManagedObjectContext rollback];
+    
     // clear the previous array of search results
     [RepController sharedInstance].arrayOfRep = [NSArray new];
     

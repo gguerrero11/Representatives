@@ -10,6 +10,7 @@
 @interface Stack ()
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext *temporaryManagedObjectContext;
 
 @end
 
@@ -29,6 +30,7 @@
     self = [super init];
     if (self) {
         [self setupManagedObjectContext];
+        [self setupTemporaryManagedObjectContext];
     }
     return self;
 }
@@ -49,6 +51,24 @@
     }
     
     self.managedObjectContext.undoManager = [[NSUndoManager alloc] init];
+}
+
+- (void)setupTemporaryManagedObjectContext
+{
+    self.temporaryManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    self.temporaryManagedObjectContext.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    
+    NSError* error;
+    [self.temporaryManagedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                                       configuration:nil
+                                                                                 URL:self.storeURL
+                                                                             options:nil
+                                                                               error:&error];
+    if (error) {
+        NSLog(@"error: %@", error);
+    }
+    
+    self.temporaryManagedObjectContext.undoManager = [[NSUndoManager alloc] init];
 }
 
 - (NSURL*)storeURL
